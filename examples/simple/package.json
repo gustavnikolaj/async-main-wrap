@@ -1,0 +1,8 @@
+{
+  "name": "@gustavnikolaj/async-main-wrap-simple-example",
+  "private": true,
+  "main": "add10.js",
+  "bin": {
+    "add10": "cli.js"
+  }
+}
