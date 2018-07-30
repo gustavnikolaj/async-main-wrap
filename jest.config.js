@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: "node",
   collectCoverageFrom: [
     "lib/**/*.js",
     "!**/__tests__/**",
