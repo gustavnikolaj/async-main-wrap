@@ -4,10 +4,9 @@
   "description": "Simple CLI tool wrapper.",
   "main": "lib/asyncMainWrap.js",
   "scripts": {
-    "coverage": "jest --coverage",
+    "coverage": "nyc mocha",
     "lint": "eslint .",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "test": "mocha"
   },
   "author": "Gustav Nikolaj <gustavnikolaj@gmail.com>",
   "license": "ISC",
@@ -26,5 +25,13 @@
     "nyc": "^12.0.2",
     "prettier": "^1.14.2",
     "unexpected": "^10.38.0"
+  },
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "html",
+      "lcov",
+      "text"
+    ]
   }
 }
