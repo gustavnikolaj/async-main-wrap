@@ -3,7 +3,7 @@ const { exec } = require("child_process");
 const expect = require("unexpected");
 
 function resolveFixture(name) {
-  return path.resolve(__dirname, "../__fixtures__", `${name}/${name}`);
+  return path.resolve(__dirname, "__fixtures__", `${name}/${name}`);
 }
 
 function execAsync(cmd) {

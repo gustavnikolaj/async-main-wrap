@@ -22,6 +22,8 @@
     "eslint-plugin-prettier": "^2.6.2",
     "esm": "^3.0.79",
     "jest": "^23.5.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "prettier": "^1.14.2",
     "unexpected": "^10.38.0"
   }
