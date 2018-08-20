@@ -1,6 +1,6 @@
 # Async main wrap
 
-[![npm version](https://badge.fury.io/js/%40gustavnikolaj%2Fasync/main/wrap.svg)](https://www.npmjs.com/package/@gustavnikolaj/async/main/wrap)
+[![npm version](https://badge.fury.io/js/%40gustavnikolaj%2Fasync-main-wrap.svg)](https://www.npmjs.com/package/@gustavnikolaj/async-main-wrap)
 [![Build Status](https://travis-ci.com/gustavnikolaj/async-main-wrap.svg?branch=master)](https://travis-ci.com/gustavnikolaj/async-main-wrap)
 
 A simple utility to base cli tools on async methods.
