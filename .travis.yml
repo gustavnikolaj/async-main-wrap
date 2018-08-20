@@ -3,5 +3,7 @@ node_js:
   - "8"
   - "10"
 script:
-- npm run lint
-- npm run test
+  - npm run lint
+  - npm run coverage
+after_script:
+  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
