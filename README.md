@@ -12,11 +12,11 @@ A simple utility to base cli tools on async methods.
 const wrap = require("@gustavnikolaj/async-main-wrap");
 const main = require("./main.js");
 
-wrap(main)(process.argv);
+wrap(main)(process.cwd(), process.argv.slice(2));
 
 // main.js
 
-module.exports = async function cliTool(args) {
+module.exports = async function cliTool(cwd, args) {
   if (!condition) {
     throw new Error("foo!"); // Will exit the CLI tool with status code 1.
   }
