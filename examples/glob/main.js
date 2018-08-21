@@ -1,4 +1,4 @@
-const asyncGlob = require("./asyncGlob");
+const asyncGlob = require("util").promisify(require("glob"));
 const yargs = require("yargs");
 const path = require("path");
 
