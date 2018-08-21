@@ -39,7 +39,7 @@ The following rules apply for main methods:
 - If they throw an error with a numeric exitCode property that will be used
   when shutting down the process.
 
-The directory `lib/__fixtures__` contains some examples of different use, but
+The directory `test/__fixtures__` contains some examples of different use, but
 in general, most of it will look like the example at the top.
 
 # Tips
@@ -167,7 +167,7 @@ $ chmod +x my-awesome-tool
 Sometimes you will want to do something to your errors before printing them. E.g. the [invariant](https://github.com/zertosh/invariant) module will throw errors with a custom
 property `framesToPop` that error handlers can use as a hint to remove frames from the stack trace - the module will put itself on top of any stack trace, because of how it functions. Using a module like [frame-popper](https://github.com/gustavnikolaj/frame-popper) you can remove those extra stack frames.
 
-```
+```js
 #!/usr/bin/env node
 
 const wrap = require("@gustavnikolaj/async-main-wrap");
