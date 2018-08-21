@@ -38,8 +38,11 @@ The following rules apply for main methods:
 - If they throw an error with a numeric exitCode property that will be used
   when shutting down the process.
 
-The directory `test/__fixtures__` contains some examples of different use, but
-in general, most of it will look like the example at the top.
+There is examples in both the `examples` directory as well as in
+`test/__fixtures__`. The fixtures contains some examples of different use, but
+in general, most of it will look like the example at the top, and the best
+reference for a more real world implementation is most likely going to be the
+[glob example])(./examples/glob).
 
 # Tips
 
