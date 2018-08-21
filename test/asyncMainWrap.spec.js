@@ -140,3 +140,43 @@ describe("processError option", () => {
     });
   });
 });
+
+describe("err.customOutput", () => {
+  it("should output the custom output", async () => {
+    const fixture = resolveFixture("customErrorOutput");
+    const result = await execAsync(fixture);
+
+    expect(result, "to satisfy", {
+      error: {
+        code: 1
+      },
+      stderr: "This is my custom output.\n"
+    });
+  });
+
+  it("should not output the custom output with process.env.DEBUG", async () => {
+    const fixture = resolveFixture("customErrorOutput");
+    const result = await execAsync(`DEBUG=true ${fixture}`);
+
+    expect(result, "to satisfy", {
+      error: {
+        code: 1
+      },
+      stderr: expect
+        .it("to match", /^\{ Error: Foo/)
+        .and("to match", /This is my custom output/)
+    });
+  });
+
+  it("should output the custom output when applied from processError", async () => {
+    const fixture = resolveFixture("customErrorOutputProcessError");
+    const result = await execAsync(fixture);
+
+    expect(result, "to satisfy", {
+      error: {
+        code: 1
+      },
+      stderr: "NotQuiteTypeError: This is my custom type error.\n"
+    });
+  });
+});

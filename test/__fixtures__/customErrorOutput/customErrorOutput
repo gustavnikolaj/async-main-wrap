@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const main = require("./customErrorOutput-main");
+const asyncMainWrap = require("../../../lib/asyncMainWrap");
+
+asyncMainWrap(main)();
