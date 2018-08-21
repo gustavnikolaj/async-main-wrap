@@ -35,7 +35,6 @@ it, you can simply test your main method.
 The following rules apply for main methods:
 
 - They should return a promise (or, you know, be an async function).
-- They can throw, but they may never return anything.
 - If they throw an error with a numeric exitCode property that will be used
   when shutting down the process.
 
@@ -171,8 +170,8 @@ property `framesToPop` that error handlers can use as a hint to remove frames fr
 #!/usr/bin/env node
 
 const wrap = require("@gustavnikolaj/async-main-wrap");
-const framePopper = require("@gustavnikolaj/frame-popper")
+const framePopper = require("@gustavnikolaj/frame-popper");
 const main = require("./framePopper-main");
 
-wrap(main, { processError: (err) => framePopper(err) })();
+wrap(main, { processError: err => framePopper(err) })();
 ```
