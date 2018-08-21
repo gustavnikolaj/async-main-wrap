@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const main = require("./framePopper-main");
+const asyncMainWrap = require("../../../lib/asyncMainWrap");
+
+asyncMainWrap(main, { processError: require("@gustavnikolaj/frame-popper") })();

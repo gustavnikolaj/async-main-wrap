@@ -161,3 +161,18 @@ be done like this on Linux and Mac:
 ```
 $ chmod +x my-awesome-tool
 ```
+
+## Modifying errors before printing them
+
+Sometimes you will want to do something to your errors before printing them. E.g. the [invariant](https://github.com/zertosh/invariant) module will throw errors with a custom
+property `framesToPop` that error handlers can use as a hint to remove frames from the stack trace - the module will put itself on top of any stack trace, because of how it functions. Using a module like [frame-popper](https://github.com/gustavnikolaj/frame-popper) you can remove those extra stack frames.
+
+```
+#!/usr/bin/env node
+
+const wrap = require("@gustavnikolaj/async-main-wrap");
+const framePopper = require("@gustavnikolaj/frame-popper")
+const main = require("./framePopper-main");
+
+wrap(main, { processError: (err) => framePopper(err) })();
+```

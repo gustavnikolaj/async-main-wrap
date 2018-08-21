@@ -15,12 +15,14 @@
     "lib/asyncMainWrap.js"
   ],
   "devDependencies": {
+    "@gustavnikolaj/frame-popper": "^1.0.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.4.0",
     "eslint-config-pretty-standard": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.6.2",
     "esm": "^3.0.79",
+    "invariant": "^2.2.4",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
     "prettier": "^1.14.2",

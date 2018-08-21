@@ -109,3 +109,34 @@ it("should exit with a custom exit code", async () => {
 
   expect(result, "to satisfy", { error: { code: 42 } });
 });
+
+describe("invalid options", () => {
+  it("should complain if you pass it an unsupported option", async () => {
+    const fixture = resolveFixture("unsupportedOption");
+    const result = await execAsync(fixture);
+
+    expect(result, "to satisfy", {
+      stderr: /^Unsupported option "unsupportedOption".\nError: Unsupported options/
+    });
+  });
+});
+
+describe("processError option", () => {
+  it("should complain about non-function processError option", async () => {
+    const fixture = resolveFixture("nonFunctionProcessError");
+    const result = await execAsync(fixture);
+
+    expect(result, "to satisfy", {
+      stderr: /^Error: Invalid option "processError" of value "string". Must be a function./
+    });
+  });
+
+  it("should work run invariant error through frame-popper", async () => {
+    const fixture = resolveFixture("framePopper");
+    const result = await execAsync(fixture);
+
+    expect(result, "to satisfy", {
+      stderr: /Invariant Violation: This is never going to work!\n    at module.exports/
+    });
+  });
+});
