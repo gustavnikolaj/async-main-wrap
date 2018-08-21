@@ -15,7 +15,7 @@
     "lib/asyncMainWrap.js"
   ],
   "devDependencies": {
-    "@gustavnikolaj/frame-popper": "^1.0.0",
+    "@gustavnikolaj/frame-popper": "^1.0.1",
     "coveralls": "^3.0.2",
     "eslint": "^5.4.0",
     "eslint-config-pretty-standard": "^2.0.0",
