@@ -58,34 +58,42 @@ testing the output easier, you can pass the `console` object to your method.
 const wrap = require("@gustavnikolaj/async-main-wrap");
 const main = require("./main.js");
 
-wrap(main)(process.argv.slice(2), console);
+wrap(main)(process.cwd(), process.argv.slice(2), console);
 
 // main.js
 
 module.exports = async function cliTool(args, console) {
-  const name = args[0] || world);
+  const name = args[0] || "world";
 
   console.log(`Hello, ${name}!`);
 };
 
 // main.spec.js
 
-it('should say hello world', async () => {
+it("should say hello world", async () => {
   const logs = [];
-  const mockConsole = { log(message) { logs.push(message); } };
+  const mockConsole = {
+    log(message) {
+      logs.push(message);
+    }
+  };
 
   await main([], mockConsole);
 
-  expect(logs, 'to equal', [ 'Hello, world!' ]);
+  expect(logs, "to equal", ["Hello, world!"]);
 });
 
-it('should say hello Gustav', async () => {
+it("should say hello Gustav", async () => {
   const logs = [];
-  const mockConsole = { log(message) { logs.push(message); } };
+  const mockConsole = {
+    log(message) {
+      logs.push(message);
+    }
+  };
 
-  await main(['Gustav'], mockConsole);
+  await main(["Gustav"], mockConsole);
 
-  expect(logs, 'to equal', [ 'Hello, Gustav!' ]);
+  expect(logs, "to equal", ["Hello, Gustav!"]);
 });
 ```
 
@@ -102,13 +110,13 @@ You can use any arguments parser you like, here I use yargs as an example:
 const wrap = require("@gustavnikolaj/async-main-wrap");
 const main = require("./main.js");
 
-wrap(main)(process.argv);
+wrap(main)(process.cwd(), process.argv.slice(2));
 
 // main.js
 
 const yargs = require("yargs");
 
-module.exports = async function main(args) {
+module.exports = async function main(cwd, args) {
   const argv = yargs(args).argv;
 
   if (argv.help) {
@@ -133,11 +141,11 @@ require = require("esm")(module);
 const wrap = require("@gustavnikolaj/async-main-wrap");
 const { default: main } = require("./esm-main");
 
-wrap(main)(process.argv);
+wrap(main)(process.cwd(), process.argv.slice(2));
 
 // main.js
 
-export default async function main(args) {
+export default async function main(cwd, args) {
   // ...
 }
 ```
@@ -154,7 +162,7 @@ binary.
 const wrap = require("@gustavnikolaj/async-main-wrap");
 const main = require("./main.js");
 
-wrap(main)(process.argv);
+wrap(main)(process.cwd(), process.argv.slice(2));
 ```
 
 For this to work you need to give the script executable permissions. That can
