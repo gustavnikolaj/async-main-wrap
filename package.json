@@ -28,7 +28,7 @@
     "nyc": "^13.0.1",
     "prettier": "^1.15.2",
     "unexpected": "^10.39.2",
-    "yargs": "^12.0.4"
+    "yargs": "^12.0.5"
   },
   "nyc": {
     "cache": true,
