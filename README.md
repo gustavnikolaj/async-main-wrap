@@ -139,7 +139,7 @@ The node "polyfill" for es modules: [esm](https://github.com/standard-things/esm
 
 require = require("esm")(module);
 const wrap = require("@gustavnikolaj/async-main-wrap");
-const main = require("./main");
+const main = require("./main").default;
 
 wrap(main)(process.cwd(), process.argv.slice(2));
 
