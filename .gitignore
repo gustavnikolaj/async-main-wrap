@@ -2,3 +2,4 @@
 /coverage
 /.nyc_output
 /.vscode/settings.json
+/package-lock.json
