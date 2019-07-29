@@ -92,7 +92,7 @@ it("should error out if no method is passed in", async () => {
   });
 });
 
-it("should error out if no method is passed in", async () => {
+it("should exit with status code 0 by default", async () => {
   const fixture = resolveFixture("forwardArgs");
   const result = await execAsync(`${fixture} foo bar baz`);
 
