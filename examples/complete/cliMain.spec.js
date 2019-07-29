@@ -5,7 +5,7 @@ function createConsoleMock() {
   const output = { log: "" };
   const consoleMock = {
     log: (...args) => {
-      output.log += args.join(" ") + "\n";
+      output.log += `${args.join(" ")}\n`;
     }
   };
 
