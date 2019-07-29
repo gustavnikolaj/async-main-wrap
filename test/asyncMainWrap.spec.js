@@ -136,7 +136,7 @@ describe("processError option", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /Invariant Violation: This is never going to work!\n    at module.exports/
+      stderr: /Invariant Violation: This is never going to work!\n {4}at module.exports/
     });
   });
 });
