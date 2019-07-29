@@ -6,6 +6,7 @@
   },
   "rules": {
     "import/no-unresolved": ["error", { "commonjs": true }],
-    "prefer-template": "error"
+    "prefer-template": "error",
+    "prefer-const": "error"
   }
 }
