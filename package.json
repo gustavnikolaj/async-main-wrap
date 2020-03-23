@@ -30,7 +30,7 @@
     "invariant": "^2.2.4",
     "mocha": "^7.0.0",
     "nyc": "^15.0.0",
-    "prettier": "^1.16.4",
+    "prettier": "^2.0.1",
     "unexpected": "^11.2.0",
     "yargs": "^15.0.1"
   },
