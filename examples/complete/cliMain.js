@@ -1,6 +1,6 @@
 const add10 = require("./");
 
-module.exports = async function({ logger = console, args }) {
+module.exports = async function ({ logger = console, args }) {
   // Parse out the argument.
   const n = parseInt(args[0]);
 

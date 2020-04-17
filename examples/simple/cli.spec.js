@@ -5,7 +5,7 @@ const expect = require("unexpected");
 it("should add 10 to 1", () => {
   const cmd = path.resolve(__dirname, "cli.js");
   return expect(
-    callback => exec(`${cmd} 1`, callback),
+    (callback) => exec(`${cmd} 1`, callback),
     "to call the callback without error"
   ).then(([stdout, stderr]) => {
     expect(stderr, "to equal", "");
@@ -16,7 +16,7 @@ it("should add 10 to 1", () => {
 it("should error out if no arguments is passed", () => {
   const cmd = path.resolve(__dirname, "cli.js");
   return expect(
-    callback => exec(`${cmd}`, callback),
+    (callback) => exec(`${cmd}`, callback),
     "to call the callback with error",
     /You must pass in a number/
   );

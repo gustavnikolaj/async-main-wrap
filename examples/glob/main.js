@@ -2,42 +2,42 @@ const asyncGlob = require("util").promisify(require("glob"));
 const yargs = require("yargs");
 const path = require("path");
 
-module.exports = async function(defaultCwd, args) {
+module.exports = async function (defaultCwd, args) {
   const argv = yargs
     .option("cwd", {
       type: "string",
       describe: "Set the cwd for the search.",
-      coerce: cwd => path.resolve(defaultCwd, cwd)
+      coerce: (cwd) => path.resolve(defaultCwd, cwd),
     })
     .alias("h", "help")
     .option("mark", {
       type: "boolean",
-      describe: "Mark directories with a trailing /"
+      describe: "Mark directories with a trailing /",
     })
     .option("dot", {
       type: "boolean",
-      describe: "Include `.dot` files in normal matches and globstar matches."
+      describe: "Include `.dot` files in normal matches and globstar matches.",
     })
     .option("nosort", {
       type: "boolean",
-      describe: "Don't sort the results."
+      describe: "Don't sort the results.",
     })
     .option("nocase", {
       type: "boolean",
-      describe: "Perform a case-insensitive match."
+      describe: "Perform a case-insensitive match.",
     })
     .option("silent", {
       type: "boolean",
       describe:
         "When an unusual error is encountered when attempting to " +
         "read a directory, a warning will be printed to stderr. " +
-        "This option set to true suppress these warnings."
+        "This option set to true suppress these warnings.",
     })
-    .command("$0 <pattern>", false, yargs => {
+    .command("$0 <pattern>", false, (yargs) => {
       yargs.positional("pattern", {
         describe: "The pattern to glob for.",
         type: "string",
-        require: true
+        require: true,
       });
     })
     .demandCommand(1)
@@ -54,7 +54,7 @@ module.exports = async function(defaultCwd, args) {
     dot: argv.dot,
     silent: argv.silent,
     nosort: argv.nosort,
-    nocase: argv.nocase
+    nocase: argv.nocase,
   });
 
   for (const file of files) {

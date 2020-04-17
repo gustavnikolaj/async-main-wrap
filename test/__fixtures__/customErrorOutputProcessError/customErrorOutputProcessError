@@ -4,8 +4,8 @@ const main = require("./customErrorOutputProcessError-main");
 const asyncMainWrap = require("../../../lib/asyncMainWrap");
 
 asyncMainWrap(main, {
-  processError: err => {
+  processError: (err) => {
     err.customOutput = `NotQuite${err.name}: ${err.message}`;
     return err;
-  }
+  },
 })();
