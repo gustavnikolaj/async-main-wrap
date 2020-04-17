@@ -160,10 +160,10 @@ describe("err.customOutput", () => {
 
     expect(result, "to satisfy", {
       error: {
-        code: 1
+        code: 1,
       },
       stderr: expect
-        .it("to match", /^\{ Error: Foo/)
+        .it("to match", /Error: Foo/)
         .and("to match", /This is my custom output/)
     });
   });
