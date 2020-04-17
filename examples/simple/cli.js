@@ -6,7 +6,7 @@ const main = require("./");
 // Parse out the argument.
 const n = parseInt(process.argv[2]);
 
-asyncMainWrap(main)(n).then(result => {
+asyncMainWrap(main)(n).then((result) => {
   // Generate output.
   console.log(result);
 });

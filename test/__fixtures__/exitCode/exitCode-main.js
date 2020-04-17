@@ -1,4 +1,4 @@
-module.exports = async function() {
+module.exports = async function () {
   const err = new Error("TEST_ERROR");
   err.exitCode = 42;
 

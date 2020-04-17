@@ -6,7 +6,7 @@ function createConsoleMock() {
   const consoleMock = {
     log: (...args) => {
       output.log += `${args.join(" ")}\n`;
-    }
+    },
   };
 
   return { consoleMock, output };
@@ -17,11 +17,11 @@ it("should add 10 to 1", async () => {
 
   await cliMain({
     args: ["1"],
-    logger: consoleMock
+    logger: consoleMock,
   });
 
   return expect(output, "to satisfy", {
-    log: "11\n"
+    log: "11\n",
   });
 });
 

@@ -17,7 +17,7 @@ function execAsync(cmd) {
         resolve({
           error,
           stdout,
-          stderr
+          stderr,
         });
       });
     } catch (e) {
@@ -33,7 +33,7 @@ it("should execute the method passed in", async () => {
   expect(result, "to satisfy", {
     error: { code: 0 },
     stdout: "SUCCESS\n",
-    stderr: ""
+    stderr: "",
   });
 });
 
@@ -44,7 +44,7 @@ it("should work with esm", async () => {
   expect(result, "to satisfy", {
     error: { code: 0 },
     stdout: "SUCCESS\n",
-    stderr: ""
+    stderr: "",
   });
 });
 
@@ -55,7 +55,7 @@ it("should error and exit with status code 1", async () => {
   expect(result, "to satisfy", {
     error: { code: 1 },
     stdout: "",
-    stderr: /^Error: TEST_ERROR/
+    stderr: /^Error: TEST_ERROR/,
   });
 });
 
@@ -66,7 +66,7 @@ it("should error out if the promise resolves with a value", async () => {
   expect(result, "to satisfy", {
     error: { code: 0 },
     stdout: "",
-    stderr: ""
+    stderr: "",
   });
 });
 
@@ -77,7 +77,7 @@ it("should error out if the method returns anything", async () => {
   expect(result, "to satisfy", {
     error: { code: 1 },
     stdout: "",
-    stderr: /^Error: The wrapped method must return a promise/
+    stderr: /^Error: The wrapped method must return a promise/,
   });
 });
 
@@ -88,7 +88,7 @@ it("should error out if no method is passed in", async () => {
   expect(result, "to satisfy", {
     error: { code: 1 },
     stdout: "",
-    stderr: /^Error: You must pass in a function./
+    stderr: /^Error: You must pass in a function./,
   });
 });
 
@@ -99,7 +99,7 @@ it("should exit with status code 0 by default", async () => {
   expect(result, "to satisfy", {
     error: { code: 0 },
     stdout: "foo\nbar\nbaz\n",
-    stderr: ""
+    stderr: "",
   });
 });
 
@@ -116,7 +116,7 @@ describe("invalid options", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /^Unsupported option "unsupportedOption".\nError: Unsupported options/
+      stderr: /^Unsupported option "unsupportedOption".\nError: Unsupported options/,
     });
   });
 });
@@ -127,7 +127,7 @@ describe("processError option", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /^Error: Invalid option "processError" of value "string". Must be a function./
+      stderr: /^Error: Invalid option "processError" of value "string". Must be a function./,
     });
   });
 
@@ -136,7 +136,7 @@ describe("processError option", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /Invariant Violation: This is never going to work!\n {4}at module.exports/
+      stderr: /Invariant Violation: This is never going to work!\n {4}at module.exports/,
     });
   });
 });
@@ -148,9 +148,9 @@ describe("err.customOutput", () => {
 
     expect(result, "to satisfy", {
       error: {
-        code: 1
+        code: 1,
       },
-      stderr: "This is my custom output.\n"
+      stderr: "This is my custom output.\n",
     });
   });
 
@@ -160,11 +160,11 @@ describe("err.customOutput", () => {
 
     expect(result, "to satisfy", {
       error: {
-        code: 1
+        code: 1,
       },
       stderr: expect
         .it("to match", /^\{ Error: Foo/)
-        .and("to match", /This is my custom output/)
+        .and("to match", /This is my custom output/),
     });
   });
 
@@ -174,9 +174,9 @@ describe("err.customOutput", () => {
 
     expect(result, "to satisfy", {
       error: {
-        code: 1
+        code: 1,
       },
-      stderr: "NotQuiteTypeError: This is my custom type error.\n"
+      stderr: "NotQuiteTypeError: This is my custom type error.\n",
     });
   });
 });
