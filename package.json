@@ -16,7 +16,6 @@
   ],
   "devDependencies": {
     "@gustavnikolaj/frame-popper": "^1.0.1",
-    "coveralls": "^3.0.3",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^15.0.0",

@@ -46,5 +46,8 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
       - run: npm install
-      - run: npm run coverage
-      - run: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./coverage/lcov.info
