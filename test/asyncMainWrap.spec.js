@@ -116,7 +116,8 @@ describe("invalid options", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /^Unsupported option "unsupportedOption".\nError: Unsupported options/,
+      stderr:
+        /^Unsupported option "unsupportedOption".\nError: Unsupported options/,
     });
   });
 });
@@ -127,7 +128,8 @@ describe("processError option", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /^Error: Invalid option "processError" of value "string". Must be a function./,
+      stderr:
+        /^Error: Invalid option "processError" of value "string". Must be a function./,
     });
   });
 
@@ -136,7 +138,8 @@ describe("processError option", () => {
     const result = await execAsync(fixture);
 
     expect(result, "to satisfy", {
-      stderr: /Invariant Violation: This is never going to work!\n {4}at module.exports/,
+      stderr:
+        /Invariant Violation: This is never going to work!\n {4}at module.exports/,
     });
   });
 });
